@@ -1,0 +1,2597 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://collabnix.com/docker-cheatsheet/ -->
+<html lang="en-GB" class=" js csstransforms csstransforms3d csstransitions"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="pingback" href="https://collabnix.com/xmlrpc.php">
+   
+<title>Docker Cheatsheet [2023 Updated] – Collabnix</title>
+<meta name="robots" content="max-image-preview:large">
+<meta name="description" content="A cheat-sheet is a concise summary of important information that is meant to be used as a quick reference. Cheat-sheets are often used in the form of a list or a table, and they typically cover a specific topic or subject area. In the context of Docker, a Docker cheat-sheet is a summary of commonly […]">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+<link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="alternate" type="application/rss+xml" title="Collabnix » Feed" href="https://collabnix.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Collabnix » Comments Feed" href="https://collabnix.com/comments/feed/">
+<script src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/lftracker_v1_DzLR5a5oNZA7BoQ2.js.download" async=""></script><script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/collabnix.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.4.1"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/style.min.css" type="text/css" media="all">
+<style id="wp-block-library-theme-inline-css" type="text/css">
+.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-bottom:4px solid;border-top:4px solid;color:currentColor;margin-bottom:1.75em}.wp-block-pullquote cite,.wp-block-pullquote footer,.wp-block-pullquote__citation{color:currentColor;font-size:.8125em;font-style:normal;text-transform:uppercase}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;font-style:normal;position:relative}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote.is-style-plain{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:0 0 1em}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video{margin:0 0 1em}.wp-block-template-part.has-background{margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+</style>
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="redux-extendify-styles-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/extendify-utilities.css" type="text/css" media="all">
+<link rel="stylesheet" id="oc_cb_css_fr-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/cookie-banner-frontend.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="SFSImainCss-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/sfsi-style.css" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap4-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/bootstrap.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="fontawesome-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="mediumish-style-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="a0d4e2dc8fedffc1f32aef64fdab6532-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="50a13ad9a4c45e05454875855874ccb7-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/css(1)" type="text/css" media="all">
+<link rel="stylesheet" id="c8575e414cefc58fef4c19cc29b9a938-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/css(2)" type="text/css" media="all">
+<link rel="stylesheet" id="1f3024ccaab2a997012f095d6873946e-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/css(3)" type="text/css" media="all">
+<link rel="stylesheet" id="f5bc3b56cb236f484d9a38537bb413b1-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/css(4)" type="text/css" media="all">
+<link rel="stylesheet" id="mediumish_no-kirki-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/style(1).css" type="text/css" media="all">
+<style id="mediumish_no-kirki-inline-css" type="text/css">
+.btn-simple{background-color:#1C9963;border-color:#1C9963;}.article-post a:not(.wp-block-button__link), .post .btn.follow, .post .post-top-meta .author-description a, article.page a:not(.wp-block-button__link), .alertbar a{color:#1C9963;}.post .btn.follow, .alertbar input[type="submit"]{border-color:#1C9963;}blockquote{border-color:#1C9963;}.entry-content input[type=submit], .alertbar input[type="submit"]{background-color:#1C9963;border-color:#1C9963;}p.sharecolour{color:#999999;}.shareitnow ul li a svg, .shareitnow a{fill:#b3b3b3;}.shareitnow li a{color:#b3b3b3;border-color:#d2d2d2;}#comments a{color:#1C9963;}.comment-form input.submit{background-color:#1C9963;border-color:#1C9963;}footer.footer a{color:#1C9963;}body{font-family:PT Sans;font-weight:400;font-size:15px;line-height:1.5;color:#5f636d;}.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{font-family:PT Sans;font-weight:700;color:#222;}.carousel-excerpt .title{font-family:;font-weight:700;font-size:1.5em;line-height:1.2;color:#ffffff;text-transform:none;letter-spacing:0;}.carousel-excerpt .fontlight{font-family:;font-weight:400;font-size:18px;line-height:1.4;color:#ffffff;letter-spacing:0;}.mediumnavigation .navbar-brand{font-family:DM Serif Display;font-weight:400;font-size:30px;letter-spacing:0;}.navbar .nav-link{font-family:Source Sans Pro;font-size:15px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;}.article-post{font-family:Merriweather;line-height:1.8;color:#222222;font-size:1.2em;}.mainheading h1.posttitle, h1.entry-title{font-family:;line-height:1.1;color:#222222;font-size:3.4em;}.entry-content.page-content{font-family:;line-height:1.7;color:;font-size:1.2em;}.mediumnavigation, .dropdown-menu, .dropdown-item{background-color:rgba(255,255,255,.97);}.mediumnavigation, .mediumnavigation a, .navbar-light .navbar-nav .nav-link{color:#888;}.navbar-light .navbar-brand{color:#111111;}.navbar-light .navbar-brand:hover{color:#02b875;}.customarea .btn.follow{border-color:#02B875;color:#02B875;}.search-form .search-submit{background-color:#02B875;}.search-form .search-field{border-color:#eeeeee;}.search-form .search-submit .fa{color:#ffffff;}.search-form .search-field, .search-form .search-field::placeholder{color:#b2b2b2;}@media (max-width: 767px){.navbar-collapse{background-color:rgba(255,255,255,.97);}}
+</style>
+<link rel="stylesheet" id="claps-applause-css" href="./Docker Cheatsheet [2023 Updated] – Collabnix_files/claps-applause.css" type="text/css" media="all">
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/jquery.min.js.download" id="jquery-core-js"></script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/jquery-migrate.min.js.download" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://collabnix.com/wp-json/"><link rel="alternate" type="application/json" href="https://collabnix.com/wp-json/wp/v2/pages/9655"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://collabnix.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.4.1">
+<link rel="canonical" href="https://collabnix.com/docker-cheatsheet/">
+<link rel="shortlink" href="https://collabnix.com/?p=9655">
+<link rel="alternate" type="application/json+oembed" href="https://collabnix.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcollabnix.com%2Fdocker-cheatsheet%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://collabnix.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcollabnix.com%2Fdocker-cheatsheet%2F&amp;format=xml">
+<meta name="generator" content="Redux 4.4.10"><style>[class*=" icon-oc-"],[class^=icon-oc-]{speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-oc-one-com-white-32px-fill:before{content:"901"}.icon-oc-one-com:before{content:"900"}#one-com-icon,.toplevel_page_onecom-wp .wp-menu-image{speak:none;display:flex;align-items:center;justify-content:center;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.onecom-wp-admin-bar-item>a,.toplevel_page_onecom-wp>.wp-menu-name{font-size:16px;font-weight:400;line-height:1}.toplevel_page_onecom-wp>.wp-menu-name img{width:69px;height:9px;}.wp-submenu-wrap.wp-submenu>.wp-submenu-head>img{width:88px;height:auto}.onecom-wp-admin-bar-item>a img{height:7px!important}.onecom-wp-admin-bar-item>a img,.toplevel_page_onecom-wp>.wp-menu-name img{opacity:.8}.onecom-wp-admin-bar-item.hover>a img,.toplevel_page_onecom-wp.wp-has-current-submenu>.wp-menu-name img,li.opensub>a.toplevel_page_onecom-wp>.wp-menu-name img{opacity:1}#one-com-icon:before,.onecom-wp-admin-bar-item>a:before,.toplevel_page_onecom-wp>.wp-menu-image:before{content:'';position:static!important;background-color:rgba(240,245,250,.4);border-radius:102px;width:18px;height:18px;padding:0!important}.onecom-wp-admin-bar-item>a:before{width:14px;height:14px}.onecom-wp-admin-bar-item.hover>a:before,.toplevel_page_onecom-wp.opensub>a>.wp-menu-image:before,.toplevel_page_onecom-wp.wp-has-current-submenu>.wp-menu-image:before{background-color:#76b82a}.onecom-wp-admin-bar-item>a{display:inline-flex!important;align-items:center;justify-content:center}#one-com-logo-wrapper{font-size:4em}#one-com-icon{vertical-align:middle}.imagify-welcome{display:none !important;}</style><meta name="follow.it-verification-code-ZXdWelo0V1BUNmJ1Wk4vSHlkM0lDajBKZlp3QzBhaytGL0dQQnZ0M2JVdE42aWpWN2lvREdMekJLa1FmRXRGK3FRRi9QdS8renl6T1NIeUFjYWlvdCs1bysxMEZrajlZZ1gxY3IrWWNHNmgzQTNBcnpUZEVUMko4VWx5NCt0L1h8bDJyYUw0NlExZFQrMzdFZEpTQ1ZqMzNEbS96ZWJmTUltTS8zb0E5cEJ0TT0=" content="Dwqr4NmABhKJyFKFJY86"><meta property="og:image:secure_url" content="https://usercontent.one/wp/collabnix.com/wp-content/uploads/2023/04/210130087-62a755f7-499c-4f5a-a91c-9151ac82417e.png" data-id="sfsi"><meta property="twitter:card" content="summary_large_image" data-id="sfsi"><meta property="twitter:image" content="https://usercontent.one/wp/collabnix.com/wp-content/uploads/2023/04/210130087-62a755f7-499c-4f5a-a91c-9151ac82417e.png" data-id="sfsi"><meta property="og:image:type" content="image/png" data-id="sfsi"><meta property="og:image:width" content="1920" data-id="sfsi"><meta property="og:image:height" content="1080" data-id="sfsi"><meta property="og:url" content="https://collabnix.com/docker-cheatsheet/" data-id="sfsi"><meta property="og:description" content="
+
+
+
+
+A cheat-sheet is a concise summary of important information that is meant to be used as a quick reference. Cheat-sheets are often used in the form of a list or a table, and they typically cover a specific topic or subject area. In the context of Docker, a Docker cheat-sheet is a summary of commonly used Docker commands and their options, as well as other useful information related to Docker.
+
+
+
+Cheat-sheets can be particularly helpful when learning a new tool or technology, as they provide a convenient way to quickly look up and remind oneself of key concepts and commands. They can also be useful for experienced users who need to recall a specific command or option but may not remember all the details.
+
+
+
+Table of Contents
+
+
+
+
+Categories
+
+🐳 Basic Docker CLIs
+
+
+
+🧰 Container Management CLIs
+
+
+
+🧑‍💻 Inspecting the Container
+
+
+
+🧑‍💻 Interacting with Container
+
+
+
+🫙 Image Management Commands
+
+
+
+🧪 Image Transfer Commands
+
+
+
+🏗️ Builder Main Commands
+
+
+
+⚙️ The Docker CLI
+
+
+
+🧰 Docker Security (Scout, SBOM)
+
+
+
+
+
+🧑‍🤝‍🧑 Contributors
+
+
+
+💬 Support and Community
+
+
+
+👉 References
+
+
+
+
+Basic Docker CLIs
+
+
+
+
+
+
+Command Descriptiondocker run Run a command in a new container  docker build Build an image from a Dockerfile docker push Push an image to a registry docker pull Pull an image from a registrydocker stopStop a running containerdocker rmRemove one or more containersBasic Docker CLIs
+
+
+
+
+
+
+Container Management CLIs
+
+
+
+CommandDescriptiondocker create image[command]docker run image[command]create the container= create + start  docker start container... docker stop container... docker kill container... docker restart container... start the containergraceful2 stopkill (SIGKILL) the container= stop + start docker pause container...docker unpause container...   Suspend the container Resume the container docker wait container... Block until one or more containers stop, then print their exit codesdocker top container... Display the running processes of a containerdocker rm[-f3]container...destroy the containerContainer Management  CLIs
+
+
+
+
+_____________________________________________________________________________________
+
+
+
+2send SIGTERM to the main process + SIGKILL 10 seconds later
+
+
+
+3-f allows removing running containers (=docker kill + docker rm)
+
+
+
+
+Let&#39;s break down each of these commands and provide examples for better understanding.
+
+
+
+
+Create a Container from an Image using docker run:
+
+
+
+
+Before you can execute commands inside a container, you typically need to create a container from an image. This is usually done using the docker run command. Here&#39;s a basic example:
+
+
+
+docker run -d --name my_container_name my_image:tag
+
+
+
+Replace my_container_name with the desired name for your container, my_image:tag with the name and tag of the Docker image you want to use.
+
+
+
+
+Execute Commands in a Running Container using docker exec:
+
+
+
+
+You can execute commands in a running container using the docker exec command. The syntax is as follows:
+
+
+
+docker exec [options] CONTAINER COMMAND
+
+
+
+Here&#39;s an example:
+
+
+
+docker exec -it my_container_name ls /app
+
+
+
+This would execute the ls /app command inside the container named my_container_name.
+
+
+
+
+Start a Stopped Container using docker start:
+
+
+
+
+If you have a stopped container, you can start it again using the docker start command. Here&#39;s an example:
+
+
+
+docker start my_container_name
+
+
+
+This will start the container named my_container_name.
+
+
+
+
+Stop a Running Container using docker stop:
+
+
+
+
+You can stop a running container using the docker stop command. Here&#39;s an example:
+
+
+
+docker stop my_container_name
+
+
+
+This will gracefully stop the container named my_container_name.
+
+
+
+Remember that you need to replace my_container_name with the actual name of your container. Additionally, you can add flags like -i (interactive) and -t (tty) to the docker exec command to make the interaction more user-friendly, especially when running commands that require user input.
+
+
+
+For more advanced usage and options, you can refer to the official Docker documentation:
+
+
+
+
+Docker run
+
+
+
+Docker exec
+
+
+
+Docker start
+
+
+
+Docker stop
+
+
+
+
+Inspecting The Container
+
+
+
+Here&#39;s the list of the basic Docker commands that helps you inspect the containers seamlessly:
+
+
+
+CommandDescriptiondocker ps list running container  docker ps -a list all containers docker logs [-f6] containerShow the container output(stdout+stderr)  docker diff container Show the differences with the image (modified files) docker top container... Display the running processes of a containerdocker inspect --format=&#39;{{ .Config.Image }}&#39; my_container_name..Inspect a container and extract specific information using --format:Container Management  CLIs
+
+
+
+
+
+
+
+
+
+
+
+Interacting with Container
+
+
+
+Do you want to know how to access the containers?Check out this fundamental command below
+
+
+
+CommandDescriptiondocker attach containerattach to a running container(stdin/stdout/stderr)  docker cp container:path hostpath|docker cp  hostpath| - container: pathcopy files from the container copy files into the container docker export containerexport the content of the container (tar archive)  docker exec container args ... run a command in an existing container (useful for debugging) docker wait container... wait until the container terminates and return the exit codedocker commit container image commit a new docker image (snapshot of the image)Interacting with the container
+
+
+
+Image Management Commands
+
+
+
+Docker provides a set of commands to manage Docker images efficiently. Here is a list of some important Docker image management commands:
+
+
+
+CommandDescriptiondocker imageslist all local images  docker history  imagedocker inspect  image...show the image history(list of ancestors)show level-info&#39;s(in json format)docker tag image tagtag an image  docker commit container image Create an image(from a container) docker import url| -[tag] Create an image(from a tarball)docker rmi image...delete imagesImage Management  Commands
+
+
+
+Image Transfer Commands
+
+
+
+To transfer Docker images between different environments or systems, you have a few options. Here are some commonly used methods to transfer Docker images:
+
+
+
+Using the registry APIDescriptiondocker push repo[:tag]...push an image /repository from a registry  docker pull repo[:tag]..pull an image /repository from a registry  docker search textsearch an image on the official registry docker login... login to a registry docker logout...  logout from a registrydocker export &lt;container_id&gt; &gt;image.tar exporting: You can export a Docker image as a tarball file using the docker export commanddocker import image image.tar &lt;image_name&gt;:&lt;tag&gt;importing: On the target system, you can import the Docker image from the tarball using the docker import commandImage Transfer  Commands
+
+
+
+Manual TransferDescriptiondocker save repo| [:tag]... export an image/repo as a tarball  docker loadload  images from a tarballdocker-ssh10proposed script to transfer images between two daemons over ssh  Contd&#39;
+
+
+
+Builder Main Commands
+
+
+
+Want to know how to build Docker Image? Do check out the list of image commands below:
+
+
+
+CommandDescriptionFROM image|scratchbase image for the build MAINTAINER emailname of the maintainer(metadata). COPY path dst   copy path from the context into the container at location destination(dst) ADD src dst same as COPY but untar archives and accepts https urls RUN args.. run an arbitrary command inside the container USER nameset the default usernameWORKDIR pathset the default working directoryCMD args.. set the default commandENV name valueset an environment variableBuilder Main Commands
+
+
+
+In Docker, the builder pattern is a technique used to create optimized and efficient Docker images by separating the build environment from the runtime environment. It involves using a multi-stage build process, where one stage is used for building the application, and another stage is used to package the application for runtime. This pattern helps to reduce the size of the final Docker image and ensures that only the necessary runtime dependencies are included.
+
+
+
+Here are the main commands used in the builder pattern in Docker:
+
+
+
+
+FROM: The FROM instruction specifies the base image for the build stage. It sets up the build environment and contains all the tools and dependencies needed for building the application.
+
+
+
+
+   FROM base_image_for_building AS build_stage
+
+
+
+
+RUN: The RUN instruction executes commands inside the build stage container. It is used to install dependencies, compile code, or perform any other build-related tasks.
+
+
+
+
+   RUN apt-get update &amp;&amp; apt-get install -y build-essential
+   RUN npm install
+   RUN go build -o my_app
+
+
+
+
+COPY/ADD: The COPY or ADD instruction is used to copy files from the local directory (context) into the build stage container.
+
+
+
+
+   COPY . /app
+
+
+
+
+WORKDIR: The WORKDIR instruction sets the working directory inside the build stage container where subsequent commands will be executed.
+
+
+
+
+   WORKDIR /app
+
+
+
+
+FROM (second stage): After the build stage is complete, you use another FROM instruction to start a new stage for the runtime environment. This new stage starts from a smaller base image, typically one containing only the necessary runtime dependencies.
+
+
+
+
+   FROM base_image_for_runtime AS runtime_stage
+
+
+
+
+COPY --from: The COPY --from instruction copies files from the build stage container to the runtime stage container.
+
+
+
+
+   COPY --from=build_stage /app/my_app /app/my_app
+
+
+
+
+CMD/ENTRYPOINT: The CMD or ENTRYPOINT instruction specifies the default command or entry point to run when the container starts. It is used in the runtime stage to define the application that should be executed when the container runs.
+
+
+
+
+   CMD [/app/my_app]
+
+
+
+Here&#39;s a complete example of a multi-stage Dockerfile using the builder pattern:
+
+
+
+# Build stage
+FROM golang:1.16 AS build_stage
+WORKDIR /app
+COPY . .
+RUN go build -o my_app
+
+# Runtime stage
+FROM alpine:latest AS runtime_stage
+WORKDIR /app
+COPY --from=build_stage /app/my_app /app/my_app
+CMD [/app/my_app]
+
+
+
+In this example, the first stage uses the Go programming language image as the base image for building the application, compiles the Go code, and generates the my_app executable. In the second stage, the Alpine Linux image is used as the base image for the runtime, and the my_app binary is copied from the first stage. The final image will only include the compiled my_app binary and not the entire build environment, resulting in a smaller and more optimized image for runtime.
+
+
+
+The Docker CLI
+
+
+
+A brief description of some essential Docker CLI commands related to image management and container operations are seen below. Below, I&#39;ve expanded on the descriptions of each command:
+
+
+
+
+Docker build:
+
+
+
+
+   docker build [options] -t app/container_name .
+
+
+
+This command is used to create a Docker image from a Dockerfile, which is a text file containing instructions to define the image. The -t option is used to specify a tag or name for the built image. The . at the end of the command refers to the build context, i.e., the current directory where the Dockerfile is located.
+
+
+
+
+Docker run:
+
+
+
+
+   docker run [options] IMAGE
+
+
+
+This command is used to run a command or application in a Docker container based on the specified IMAGE. It creates a new container from the image and executes the default command specified in the image, or any command provided as arguments to the docker run command. This is one of the primary ways to start a container.
+
+
+
+
+Docker create:
+
+
+
+
+   docker create [options] IMAGE
+
+
+
+The docker create command creates a new container from the specified IMAGE, but it does not start the container. It prepares the container to be started using the docker start command. You can use this command to create a container and then start it later.
+
+
+
+
+Manage images:Docker provides several commands to manage images:
+
+
+
+
+
+docker images: Lists all Docker images available on your system.
+
+
+
+docker pull: Downloads Docker images from a registry.
+
+
+
+docker push: Pushes Docker images to a registry (e.g., Docker Hub) for sharing with others.
+
+
+
+docker rmi: Removes Docker images from your system.
+
+
+
+
+
+Manage containers:Docker provides several commands to manage containers:
+
+
+
+
+
+docker ps: Lists all running containers.
+
+
+
+docker ps -a: Lists all containers (including stopped ones).
+
+
+
+docker start: Starts one or more stopped containers.
+
+
+
+docker stop: Stops one or more running containers.
+
+
+
+docker restart: Stops and then starts a container.
+
+
+
+docker rm: Removes one or more containers (use with caution).
+
+
+
+
+These commands are just the basics of working with Docker images and containers. Docker provides a rich set of commands and options to interact with containers, networks, volumes, and more. You can always explore the official Docker documentation for more in-depth information on each command and its options.
+
+
+
+To run a command in a Docker container using the docker create command, you first need to create a container from an image. The docker create command creates a container but does not start it. It returns a container ID that you can use to manage the container.
+
+
+
+Here&#39;s the basic syntax of the docker create command:
+
+
+
+docker create [options] IMAGE [COMMAND] [ARG...]
+
+
+
+Let&#39;s break down the options:
+
+
+
+
+-a, --attach: Attach STDOUT/STDERR and forward signals.
+
+
+
+-i, --interactive: Keep STDIN open even if not attached.
+
+
+
+--name NAME: Assign a name to the container.
+
+
+
+-p, --publish 5000:5000: Publish a container&#39;s port to the host. In this example, port 5000 from the container will be mapped to port 5000 on the host.
+
+
+
+--expose 5432: Expose a port internally to linked containers. This does not publish the port to the host machine.
+
+
+
+-P, --publish-all: Publish all exposed ports to the host.
+
+
+
+--link container:alias: Link the container to another container with an optional alias.
+
+
+
+-v, --volume &#39;pwd:/app: Mount a host directory into the container. In this example, the current working directory is mounted to the /app directory in the container.
+
+
+
+-e, --env NAME=hello: Set an environment variable inside the container.
+
+
+
+
+Here&#39;s an example of using the docker create command:
+
+
+
+docker create -a -i --name my_container -p 5000:5000 --expose 5432 -P --link db_container:db_alias -v $(pwd):/app -e NAME=hello my_image
+
+
+
+
+-a -i: Attach STDOUT/STDERR and keep STDIN open for an interactive session.
+
+
+
+--name my_container: Assign the name my_container to the created container.
+
+
+
+-p 5000:5000: Publish port 5000 from the container to port 5000 on the host.
+
+
+
+--expose 5432: Expose port 5432 internally for linking to other containers.
+
+
+
+-P: Publish all exposed ports to the host.
+
+
+
+--link db_container:db_alias: Link the container to another container named db_container with the alias db_alias.
+
+
+
+-v $(pwd):/app: Mount the current working directory on the host into the /app directory in the container.
+
+
+
+-e NAME=hello: Set an environment variable NAME with the value hello inside the container.
+
+
+
+my_image: The name of the Docker image from which to create the container.
+
+
+
+
+Please note that some of the options like --link are deprecated in recent versions of Docker, and it&#39;s recommended to use user-defined networks for container communication instead.:
+
+
+
+| Variable Name | Value   |
+|-------------- | ------- |
+| VAR1          | value1  |
+| VAR2          | value2  |
+| VAR3          | value3  |
+
+
+
+Replace VAR1, VAR2, and VAR3 with the actual names of your environment variables, and value1, value2, and value3 with their respective values.
+
+
+
+Remember, to execute the docker create command, you must have Docker installed and running on your system.
+
+
+
+Docker Compose
+
+
+
+Basic Example
+
+
+
+version: &#39;2&#39;
+services:
+  web:
+    build:
+      context: ./Path
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/code
+
+  redis:
+    image: redis
+
+
+
+In this configuration:
+
+
+
+
+The web service is defined, which will build an image using the Dockerfile located in the ./Path directory. It exposes port 5000 from the container to port 5000 on the host and mounts the current directory (.) to /code inside the container.
+
+
+
+The redis service is defined, which uses the official Redis image from Docker Hub.
+
+
+
+
+Please ensure that you replace ./Path with the actual path to your Dockerfile and update any other placeholders with your specific project details. Make sure the indentation is correct as YAML is indentation-sensitive.
+
+
+
+References
+
+
+
+
+Building Images:
+
+
+
+
+To build images using Docker Compose, you can specify the build section within a service definition. You can build from a Dockerfile in a directory (context) and specify a custom Dockerfile if needed. Alternatively, you can directly use an existing image.
+
+
+
+version: &#39;3&#39;
+services:
+  web:
+    build:
+      context: ./dir
+      dockerfile: Dockerfile.dev
+    image: my-custom-image:tag
+
+  database:
+    image: postgres:latest
+
+
+
+In this example, the web service is built using a custom Dockerfile located in the ./dir directory. The resulting image is then tagged as my-custom-image:tag. The database service uses an existing postgres image.
+
+
+
+
+Exposing Ports:
+
+
+
+
+To expose ports from containers to the host machine, you can use the ports section within a service definition. You can specify both the guest (container) port and the host port.
+
+
+
+version: &#39;3&#39;
+services:
+  app:
+    image: my-app-image:latest
+    ports:
+      - 3000
+      - 8000:80
+
+
+
+#Expose port to linked service (not to host)
+Expose :[3000]
+
+
+
+In this example, the app service exposes port 3000 from the container to a random port on the host. It also maps port 80 from the container to port 8000 on the host.
+
+
+
+Please note that these examples are meant to illustrate the structure and syntax of Docker Compose configurations. Make sure to replace my-custom-image:tag and my-app-image:latest with the actual image names you intend to use.
+
+
+
+Remember that proper YAML indentation is crucial in Docker Compose files.
+
+
+
+Advanced Features
+
+
+
+
+Labels:
+
+
+
+
+Labels allow you to attach metadata to your Docker services, containers, and other objects. Here&#39;s how you can define labels in a Docker Compose YAML file:
+
+
+
+version: &#39;3&#39;
+services:
+  web:
+    image: my_web_app_image
+    labels:
+      com.example.description: Accounting web app
+
+
+
+In this example, the web service is assigned a label com.example.description with the value Accounting web app.
+
+
+
+
+DNS Servers:
+
+
+
+
+You can configure DNS servers for your services using the dns option. Here&#39;s how you can define DNS servers in a Docker Compose YAML file:
+
+
+
+version: &#39;3&#39;
+services:
+  web:
+    image: my_web_app_image
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+
+
+In this example, the web service is configured to use the Google DNS servers (8.8.8.8 and 8.8.4.4).
+
+
+
+
+Devices:
+
+
+
+
+You can assign devices to a service using the devices option. Here&#39;s how you can define devices in a Docker Compose YAML file:
+
+
+
+version: &#39;3&#39;
+services:
+  web:
+    image: my_web_app_image
+    devices:
+      - /dev/ttyUSBO:/dev/ttyUSBO
+
+
+
+In this example, the web service is assigned the device /dev/ttyUSBO from the host, and it will be available at the same path inside the container.
+
+
+
+Remember to replace my_web_app_image with the actual image name you&#39;re using.
+
+
+
+Make sure to save these configurations in a .yml file (e.g., docker-compose.yml) and use the docker-compose command to manage your services:
+
+
+
+docker-compose up -d # to start your services
+docker-compose down # to stop and remove your services
+
+
+
+Please note that YAML indentation is crucial. Be sure to maintain proper indentation levels as shown in the examples.
+
+
+
+Docker Services
+
+
+
+
+To view a list of all the services running in the swarm:
+
+
+
+
+   docker service ls
+
+
+
+
+To see all running services in a Docker stack:
+
+
+
+
+   docker stack services STACK_NAME
+
+
+
+
+To see the logs of a specific service in a Docker stack:
+
+
+
+
+   docker service logs STACK_NAME_SERVICE_NAME
+
+
+
+
+To scale a service quickly across qualified nodes in a Docker stack:
+
+
+
+
+   docker service scale STACK_NAME_SERVICE_NAME=REPLICAS
+
+
+
+Replace STACK_NAME, SERVICE_NAME, and REPLICAS with the actual names of the Docker stack, service, and the desired number of replicas, respectively.
+
+
+
+Please note that the command for viewing logs (docker service logs) requires both the stack name and the service name as arguments. The scaling command (docker service scale) should be used when you want to adjust the number of replicas (instances) of a specific service within a Docker swarm.
+
+
+
+Docker Clean
+
+
+
+
+To clean or prune unused (dangling) images:
+
+
+
+
+   docker image prune
+
+
+
+
+To remove all images which are not in use containers (including dangling images):
+
+
+
+
+   docker image prune -a
+
+
+
+
+To prune your entire system (including unused images, containers, networks, and volumes):
+
+
+
+
+   docker system prune
+
+
+
+
+To leave a Docker swarm (if you are a node in a swarm):
+
+
+
+
+   docker swarm leave
+
+
+
+
+To remove a Docker swarm (delete all services and volumes related to the stack):
+
+
+
+
+   docker stack rm STACK_NAME
+
+
+
+
+To kill all running containers:
+
+
+
+
+   docker kill $(docker ps -q)
+
+
+
+Note: The docker swarm leave command should be executed on a worker or manager node within the swarm. The docker stack rm command is used to remove a Docker stack (services) from a swarm cluster. Also, be cautious while using the docker system prune command, as it will remove all unused data (images, containers, networks, and volumes) from your system, and the operation cannot be undone. Always review what will be pruned before confirming the action.
+
+
+
+Docker Security (Scout,SBOM)
+
+
+
+The provided commands are part of a tool called Docker Scout used to analyze software artifacts, especially Docker images, for vulnerabilities. Below is a description of each command:
+
+
+
+
+Display vulnerabilities from a Docker save tarball:This command analyzes vulnerabilities in a Docker image saved as a tarball.
+
+
+
+
+   docker scout cves [OPTIONS] IMAGE | DIRECTORY | ARCHIVE
+
+
+
+Example usage:
+
+
+
+   docker scout cves redis.tar
+
+
+
+
+Display vulnerabilities from an OCI directory:This command analyzes vulnerabilities in a Docker image stored in an OCI (Open Container Initiative) directory.
+
+
+
+
+   skopeo copy --override-os linux docker://alpine oci:redis
+
+
+
+Note: Skopeo is a tool for working with container images and can be used to copy an image from one location to another.
+
+
+
+
+Export vulnerabilities to a SARIF JSON file:This command exports vulnerabilities detected in a Docker image to a SARIF (Static Analysis Results Interchange Format) JSON file.
+
+
+
+
+   docker scout cves --format sarif --output redis.sarif.json redis
+
+
+
+The above command generates a SARIF JSON file named redis.sarif.json containing the vulnerabilities found in the redis Docker image.
+
+
+
+
+Comparing two images:This command compares two Docker images to identify any differences in vulnerabilities between them.
+
+
+
+
+   docker scout compare --to redis:6.0 redis:6-bullseye
+
+
+
+The above command compares the vulnerabilities in the redis:6.0 and redis:6-bullseye Docker images.
+
+
+
+
+Displaying the Quick Overview of an Image:This command provides a quick overview of the vulnerabilities in a Docker image.
+
+
+
+
+   docker scout quickview redis:6.0
+
+
+
+The above command displays a summary of vulnerabilities found in the redis:6.0 Docker image.
+
+
+
+
+
+
+
+Please note that the commands provided assume you have the Docker Scout tool installed and properly configured. The tool may not be a standard Docker command, so you may need to install it separately. Additionally, the options and capabilities of the tool might change over time, so it&#39;s always a good idea to refer to the tool&#39;s documentation for the most up-to-date information.:
+
+
+
+Contributors
+
+
+
+Join our vibrant community of 8000+ DevOps engineers, including Docker Captain Ajeet Raina. Collaborate and contribute to empower cloud-native education and innovation.
+
+
+
+Support and Community
+
+
+
+Support &amp; Community: Engage with Collabnix on various platforms. Access community-contributed blogs, stay updated with announcements, connect on slack , Twitter,  Dev, and chat on Discord.
+
+
+
+References
+
+
+
+Discover a wealth of hands-on labs, tutorials, and curated lists here . Explore DockerLabs, KubeLabs, Kubetools, DockerTools, and more. Enhance your DevOps and cloud-native skills.
+
+
+
+
+
+
+
+Contributing to Collabnix
+
+
+
+If you&#39;re excited about cloud-native technologies and have a passion for sharing your knowledge, we welcome you to contribute to Collabnix. Whether you&#39;re a seasoned pro or just starting your journey, our community provides a nurturing environment for collaboration and growth.
+
+
+
+Get in Touch!
+
+
+
+Docker Captain Ajeet Raina is here to guide you through the Collabnix experience. Also you could reach out to Adesoji Alu to connect. And don&#39;t forget to explore  collabnix.com to embark on a journey of learning and innovation.
+
+
+
+Join me and the entire Collabnix community as we explore the fascinating world of DevOps, Cloud-Native, AI, and beyond. Let&#39;s empower each other, one cloud-native step at a time.
+
+
+
+Cheers to the exciting journey ahead! 🚀🌟👨‍💻
+
+
+
+
+" data-id="sfsi"><meta property="og:title" content="Docker Cheatsheet [2023 Updated]" data-id="sfsi"><script src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/wp-emoji-release.min.js.download" defer=""></script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"></head><body data-rsssl="1" class="page-template-default page page-id-9655 wp-embed-responsive sfsi_actvite_theme_default elementor-default elementor-kit-7716 sfsi_2.77"><div style="text-align:center;">
+  <a href="https://discord.gg/QEkCXAXYSe" target="_blank" style="background-color:#7289DA;color:white;padding:10px 20px;border-radius:5px;text-decoration:none;">Join our Discord Server</a>
+</div>
+
+<meta name="generator" content="Elementor 3.18.2; features: e_dom_optimization, e_optimized_assets_loading, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-internal, google_font-enabled, font_display-auto">
+<script> (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; cs.async=1; fs.parentNode.insertBefore(cs,fs); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('DzLR5a5oNZA7BoQ2'); </script><link rel="icon" href="https://usercontent.one/wp/collabnix.com/wp-content/uploads/2020/09/cropped-cropped-cropped-cropped-collabnix_logo-1-3-32x32.png" sizes="32x32">
+<link rel="icon" href="https://usercontent.one/wp/collabnix.com/wp-content/uploads/2020/09/cropped-cropped-cropped-cropped-collabnix_logo-1-3-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://usercontent.one/wp/collabnix.com/wp-content/uploads/2020/09/cropped-cropped-cropped-cropped-collabnix_logo-1-3-180x180.png">
+<meta name="msapplication-TileImage" content="https://usercontent.one/wp/collabnix.com/wp-content/uploads/2020/09/cropped-cropped-cropped-cropped-collabnix_logo-1-3-270x270.png">
+		<style type="text/css" id="wp-custom-css">
+			
+body {
+    font-size: 16px;
+	
+}		</style>
+		 
+    
+
+ 
+
+        
+<style>
+    </style>
+
+        
+<header class="navbar-light bg-white fixed-top mediumnavigation nav-down" style="top: 0px;">
+
+    <div class="container">
+
+        <!-- Begin Logo --> 
+        <div class="row justify-content-center align-items-center brandrow">
+            
+            <div class="col-lg-4 col-md-4 col-xs-12 hidden-xs-down customarea">
+
+                            <a class="btn follow" href="https://twitter.com/ajeetraina" target="blank"><i class="fa fa-twitter"></i> Follow</a>
+            
+
+                            <a target="_blank" href="https://www.youtube.com/c/Collabnix"> <i class="fa fa-youtube social"></i></a>
+                            <a target="_blank" href="https://github.com/collabnix"> <i class="fa fa-github social"></i></a>
+                            <a target="_blank" href="https://launchpass.com/collabnix"> <i class="fa fa-slack social"></i></a>
+            
+            </div>
+
+            <div class="col-lg-4 col-md-4  col-xs-12 text-center logoarea">
+                                     <a class="navbar-brand" href="https://collabnix.com/">Collabnix</a>
+                            </div>
+
+            <div class="col-lg-4 col-md-4 mr-auto col-xs-12 text-right searcharea">
+                                        
+                        <form role="search" method="get" class="search-form" action="https://collabnix.com/">
+<input type="hidden" name="post_type" value="post">
+<input type="search" class="search-field" placeholder="Search..." value="" name="s" title="Search for:">
+<button type="submit" class="search-submit">
+<i class="fa fa-search"></i>   
+</button>
+</form>                        
+                            </div>
+                    
+        </div>
+        <!-- End Logo --> 
+
+        <div class="navarea">
+       
+        <nav class="navbar navbar-toggleable-sm">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs4navbar" aria-controls="bs4navbar" aria-expanded="false" aria-label="Toggle navigation"> 
+                <span class="navbar-toggler-icon"></span> 
+            </button>  
+                <div id="bs4navbar" class="collapse navbar-collapse"><ul id="menu-primary-old" class="navbar-nav col-md-12 justify-content-center"><li id="menu-item-7584" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7584 nav-item"><a href="https://collabnix.com/" class="nav-link">Home</a></li><li id="menu-item-20324" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20324 nav-item"><a href="https://collabnix.com/about/" class="nav-link">About</a></li><li id="menu-item-9144" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9144 nav-item dropdown"><a href="https://www.youtube.com/c/Collabnix" class="nav-link dropdown-toggle">Events</a>
+<div class="dropdown-menu">
+<a href="https://www.youtube.com/watch?v=Tlce19gYY9Q" class="dropdown-item">OSCONF 2022</a><a href="https://www.youtube.com/playlist?list=PLTUnKbSYLzw2VOPZRiPFJK1u0tw442lKS" class="dropdown-item">OSCONF 2021</a><a href="https://www.youtube.com/c/Collabnix/playlists" class="dropdown-item">OSCONF 2020</a></div>
+</li><li id="menu-item-9203" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-9203 nav-item dropdown"><a href="https://community.collabnix.com/" class="nav-link dropdown-toggle">Cheatsheets</a>
+<div class="dropdown-menu">
+<a href="https://collabnix.com/docker-cheatsheet/" class="dropdown-item active">Docker</a><a href="https://collabnix.com/kubectl-cheatsheet/" class="dropdown-item">Kubectl</a><a href="https://collabnix.com/terraform/" class="dropdown-item">Terraform</a><a href="https://collabnix.com/chatgpt-cheat-sheet/" class="dropdown-item">ChatGPT Cheat Sheet</a><a href="https://collabnix.com/ansible-cheatsheet/" class="dropdown-item">Ansible Cheatsheet</a></div>
+</li><li id="menu-item-9176" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9176 nav-item dropdown"><a href="https://dockerlabs.collabnix.com/" class="nav-link dropdown-toggle">Labs</a>
+<div class="dropdown-menu">
+<a href="https://kubelabs.collabnix.com/" class="dropdown-item">KubeLabs</a><a href="https://dockerlabs.collabnix.com/" class="dropdown-item">DockerLabs</a><a href="https://terraform.collabnix.com/" class="dropdown-item">Terraform Labs</a><a href="https://github.com/collabnix/ioetplanet/blob/master/docs/raspberrypi/getting-started.md" class="dropdown-item">Raspberry Pi</a><a href="https://github.com/collabnix/ioetplanet/blob/master/docs/nvidia/getting-started.md" class="dropdown-item">Jetson Nano</a><a href="https://github.com/collabnix/ioetplanet/blob/master/docs/nvidia/jetson-xavier.md" class="dropdown-item">Jetson AGX Xavier</a></div>
+</li><li id="menu-item-9181" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9181 nav-item dropdown"><a href="https://github.com/collabnix" class="nav-link dropdown-toggle">Tools</a>
+<div class="dropdown-menu">
+<a href="https://github.com/collabnix/wasmlabs" class="dropdown-item">Wasm</a><a href="https://dockertools.collabnix.com/" class="dropdown-item">Docker</a><a href="https://github.com/collabnix/docker-community-extensions" class="dropdown-item">Docker Extensions</a><a href="https://kubetools.collabnix.com/" class="dropdown-item">Kubernetes</a></div>
+</li><li id="menu-item-9140" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9140 nav-item dropdown"><a href="https://launchpass.com/collabnix" class="nav-link dropdown-toggle">Chat</a>
+<div class="dropdown-menu">
+<a href="https://launchpass.com/collabnix" class="dropdown-item">Slack</a><a href="https://discord.gg/ztZpXzjSmF" class="dropdown-item">Discord</a></div>
+</li><li id="menu-item-18066" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18066 nav-item"><a href="https://collabnix.com/write-for-us/" class="nav-link">Write for Us!</a></li></ul></div>        </nav>
+        
+        </div>
+            
+    </div>
+
+</header>
+        
+       
+        <!-- Begin site-content
+		================================================== -->         
+        <div class="site-content" style="margin-top: 116.896px;">
+<div class="container"> 
+    <div class="section-title"> 
+            <h2>
+                <span>Docker Cheatsheet [2023 Updated]</span>
+            </h2> 
+        </div>
+    <div class="row justify-content-center">
+        
+        <div class="col-md-12">
+							<article id="post-9655" class="post-9655 page type-page status-publish has-post-thumbnail hentry">                    
+                    <div class="entry-content page-content">
+                        
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/210130087-62a755f7-499c-4f5a-a91c-9151ac82417e-1-1024x576.png" alt="" class="wp-image-19979" srcset="https://usercontent.one/wp/collabnix.com/wp-content/uploads/2023/04/210130087-62a755f7-499c-4f5a-a91c-9151ac82417e-1-1024x576.png 1024w, https://usercontent.one/wp/collabnix.com/wp-content/uploads/2023/04/210130087-62a755f7-499c-4f5a-a91c-9151ac82417e-1-300x169.png 300w, https://usercontent.one/wp/collabnix.com/wp-content/uploads/2023/04/210130087-62a755f7-499c-4f5a-a91c-9151ac82417e-1-768x432.png 768w, https://usercontent.one/wp/collabnix.com/wp-content/uploads/2023/04/210130087-62a755f7-499c-4f5a-a91c-9151ac82417e-1-20x11.png 20w, https://usercontent.one/wp/collabnix.com/wp-content/uploads/2023/04/210130087-62a755f7-499c-4f5a-a91c-9151ac82417e-1-1536x864.png 1536w, https://usercontent.one/wp/collabnix.com/wp-content/uploads/2023/04/210130087-62a755f7-499c-4f5a-a91c-9151ac82417e-1-600x338.png 600w, https://usercontent.one/wp/collabnix.com/wp-content/uploads/2023/04/210130087-62a755f7-499c-4f5a-a91c-9151ac82417e-1.png 1920w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p class="has-text-align-left has-black-color has-text-color">A cheat-sheet is a concise summary of important information that is meant to be used as a quick reference. Cheat-sheets are often used in the form of a list or a table, and they typically cover a specific topic or subject area. In the context of Docker, a Docker cheat-sheet is a summary of commonly used Docker commands and their options, as well as other useful information related to Docker.</p>
+
+
+
+<p class="has-text-align-left has-black-color has-text-color">Cheat-sheets can be particularly helpful when learning a new tool or technology, as they provide a convenient way to quickly look up and remind oneself of key concepts and commands. They can also be useful for experienced users who need to recall a specific command or option but may not remember all the details.</p>
+
+
+
+<h2 class="wp-block-heading">Table of Contents</h2>
+
+
+
+<ul>
+<li>Categories
+<ul>
+<li>🐳 <a href="https://collabnix.com/docker-cheatsheet/#Basic-Docker-CLIs">Basic Docker CLIs</a></li>
+
+
+
+<li>🧰 <a href="https://collabnix.com/docker-cheatsheet/#Container-Management-CLIs" data-type="internal" data-id="#Container-Management-CLIs">Container Management CLIs</a></li>
+
+
+
+<li class="anc">🧑‍💻<a href="https://collabnix.com/docker-cheatsheet/#Inspecting-the-Container"> Inspecting the Container</a></li>
+
+
+
+<li>🧑‍💻 <a href="https://collabnix.com/docker-cheatsheet/#Interacting-with-Container">Interacting with Container</a></li>
+
+
+
+<li><a href="https://collabnix.com/docker-cheatsheet/#Image-Management-Commands">🫙 Image Management Commands</a></li>
+
+
+
+<li>🧪<a href="https://collabnix.com/docker-cheatsheet/#Image-Transfer-Commands"> Image Transfer Commands</a></li>
+
+
+
+<li>🏗️ <a href="https://collabnix.com/docker-cheatsheet/#Builder-Main-Commands">Builder Main Commands</a></li>
+
+
+
+<li>⚙️ <a href="https://collabnix.com/docker-cheatsheet/#The-Docker-CLI">The Docker CLI</a></li>
+
+
+
+<li>🧰 <a href="https://collabnix.com/docker-cheatsheet/#Docker-Security-(Scout,SBOM)">Docker Security (Scout, SBOM)</a></li>
+</ul>
+</li>
+
+
+
+<li>🧑‍🤝‍🧑 <a href="https://collabnix.com/docker-cheatsheet/#Contributors">Contributors</a></li>
+
+
+
+<li>💬 <a href="https://collabnix.com/docker-cheatsheet/#Support-and-Community">Support and Community</a></li>
+
+
+
+<li>👉 <a href="https://collabnix.com/docker-cheatsheet/#References">References</a></li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="Basic-Docker-CLIs">Basic Docker CLIs</h2>
+
+
+
+<div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained"><div class="wp-block-group__inner-container">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-layout-1 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:100%">
+<figure class="wp-block-table is-style-regular has-medium-font-size"><table class="has-fixed-layout"><thead><tr><th>Command </th><th>Description</th></tr></thead><tbody><tr><td><code><mark style="background-color:#ffffff" class="has-inline-color has-vivid-cyan-blue-color">docker run </mark></code></td><td><code>Run a command in a new container<mark style="background-color:#ffffff" class="has-inline-color has-black-color"> </mark> </code></td></tr><tr><td><code><mark style="background-color:#ffffff" class="has-inline-color has-vivid-cyan-blue-color">docker build</mark></code><mark style="background-color:#ffffff" class="has-inline-color has-black-color"><code> </code></mark></td><td><code>Build an image from a Dockerfile </code></td></tr><tr><td><code><mark style="background-color:#ffffff" class="has-inline-color has-vivid-cyan-blue-color">docker push </mark></code></td><td><code>Push an image to a registry</code> </td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker</mark> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">pull</mark> </code></td><td><code>Pull an image from a registry</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker</mark> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">stop</mark></code></td><td><code>Stop a running container</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker</mark> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">rm</mark></code></td><td><code>Remove one or more containers</code></td></tr></tbody></table><figcaption class="wp-element-caption">Basic Docker CLIs</figcaption></figure>
+</div>
+</div>
+</div></div>
+
+
+
+<h2 class="wp-block-heading has-black-color has-text-color" id="Container-Management-CLIs">Container Management CLIs</h2>
+
+
+
+<figure class="wp-block-table has-medium-font-size"><table class="has-black-color has-text-color has-fixed-layout"><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker create</mark> <em>image[command]</em></code><br><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker run</mark> <em>image[command]</em></code></td><td><code>create the container<br>= <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">create + start</mark>  </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker start</mark> <em>container</em>... </code><br><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker stop</mark> <em>container</em>... </code><br><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker kill</mark> <em>container</em>... </code><br><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker restart </mark><em>container</em>... </code></td><td><code>start the container<br>graceful<sup>2</sup> stop<br>kill (SIGKILL) the container<br>= <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">stop + start </mark></code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker pause</mark> <em>container</em>...</code><br><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker unpause</mark> <em>container</em>...   </code></td><td><code>Suspend the container </code><br><code>Resume the container</code> </td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker wait</mark> <em>container</em>... </code></td><td><code>Block until one or more containers stop, then print their exit codes</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker top</mark> <em>container</em>...</code> </td><td><code>Display the running processes of a container</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker rm[-f<sup>3</sup>]</mark><code><em>container...</em></code></code></td><td><code>destroy the container</code></td></tr></tbody></table><figcaption class="wp-element-caption">Container Management  CLIs</figcaption></figure>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-layout-2 wp-block-group-is-layout-flex">
+<p>_____________________________________________________________________________________</p>
+
+
+
+<p><sup>2</sup>send SIGTERM to the main process + SIGKILL 10 seconds later</p>
+
+
+
+<p><sup>3</sup><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">-f</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark>allows removing running containers (<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">=docker kill + docker rm</mark>)</p>
+</div>
+
+
+
+<p>Let’s break down each of these commands and provide examples for better understanding.</p>
+
+
+
+<ol>
+<li><strong>Create a Container from an Image using <code>docker run</code>:</strong></li>
+</ol>
+
+
+
+<p>Before you can execute commands inside a container, you typically need to create a container from an image. This is usually done using the <code>docker run</code> command. Here’s a basic example:</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker run -d --name my_container_name my_image:tag</mark></code></pre>
+
+
+
+<p>Replace <code>my_container_name</code> with the desired name for your container, <code>my_image:tag</code> with the name and tag of the Docker image you want to use.</p>
+
+
+
+<ol start="2">
+<li><strong>Execute Commands in a Running Container using <code>docker exec</code>:</strong></li>
+</ol>
+
+
+
+<p>You can execute commands in a running container using the <code>docker exec</code> command. The syntax is as follows:</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker exec [options] CONTAINER COMMAND</mark></code></pre>
+
+
+
+<p>Here’s an example:</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker exec -it my_container_name ls /app</mark></code></pre>
+
+
+
+<p>This would execute the <code>ls /app</code> command inside the container named <code>my_container_name</code>.</p>
+
+
+
+<ol start="3">
+<li><strong>Start a Stopped Container using <code>docker start</code>:</strong></li>
+</ol>
+
+
+
+<p>If you have a stopped container, you can start it again using the <code>docker start</code> command. Here’s an example:</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker start my_container_name</mark></code></pre>
+
+
+
+<p>This will start the container named <code>my_container_name</code>.</p>
+
+
+
+<ol start="4">
+<li><strong>Stop a Running Container using <code>docker stop</code>:</strong></li>
+</ol>
+
+
+
+<p>You can stop a running container using the <code>docker stop</code> command. Here’s an example:</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker stop my_container_name</mark></code></pre>
+
+
+
+<p>This will gracefully stop the container named <code>my_container_name</code>.</p>
+
+
+
+<p>Remember that you need to replace <code>my_container_name</code> with the actual name of your container. Additionally, you can add flags like <code>-i</code> (interactive) and <code>-t</code> (tty) to the <code>docker exec</code> command to make the interaction more user-friendly, especially when running commands that require user input.</p>
+
+
+
+<p>For more advanced usage and options, you can refer to the official Docker documentation:</p>
+
+
+
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/run/">Docker run</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/reference/commandline/exec/">Docker exec</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/reference/commandline/start/">Docker start</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/reference/commandline/stop/">Docker stop</a></li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="Inspecting-the-Container">Inspecting The Container</h2>
+
+
+
+<p>Here’s the list of the basic Docker commands that helps you inspect the containers seamlessly:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-black-color has-text-color has-fixed-layout"><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker ps</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark></code></td><td><code>list running container  </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker ps -a</mark> </code></td><td><code>list all containers </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker logs [-f<sup>6</sup>]</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><em>container</em></code></td><td><code>Show the container output<em>(stdout+stderr) </em></code> </td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker diff </mark><em>containe</em>r </code></td><td><code>Show the differences with the image (modified files) </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker top</mark> <em>container</em>...</code> </td><td><code>Display the running processes of a container</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker inspect --format</mark><code><em>='{{ .Config.Image }}' my_container_name..</em></code></code></td><td><code>Inspect a container and extract specific information using <code>--format</code>:</code></td></tr></tbody></table><figcaption class="wp-element-caption">Container Management  CLIs</figcaption></figure>
+
+
+
+<p></p>
+
+
+
+<p></p>
+
+
+
+<h2 class="wp-block-heading" id="Interacting-with-Container">Interacting with Container</h2>
+
+
+
+<p>Do you want to know how to access the containers?Check out this fundamental command below</p>
+
+
+
+<figure class="wp-block-table"><table class="has-black-color has-text-color has-fixed-layout"><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker attach</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><em>container</em></code></td><td><code>attach to a running container(stdin/stdout/stderr)  </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker cp</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><em>container:path hostpath|</em></code><br><br><br><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker cp</mark>  <em>hostpath| - container: </em></code><br><code>path</code></td><td><br><code>copy files from the container</code><br><br> <br><code>copy files into the container</code><br><br><code> </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker export</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><em>container</em></code></td><td><code>export the content of the container <em>(tar archive) </em></code> </td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker exec</mark> <em>containe</em>r args ... </code></td><td><code>run a command in an existing container (<strong>useful </strong>for debugging) </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker wait</mark> <em>container</em>...</code> </td><td><code>wait until the container terminates and return the exit code</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker commit</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><code><em>container image </em></code></code></td><td><code>commit a new docker image (snapshot of the image)</code></td></tr></tbody></table><figcaption class="wp-element-caption">Interacting with the container</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="Image-Management-Commands">Image Management Commands</h2>
+
+
+
+<p>Docker provides a set of commands to manage Docker images efficiently. Here is a list of some important Docker image management commands:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-black-color has-text-color has-fixed-layout"><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker images</mark></code></td><td><code>list all local images  </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker history</mark>  <em>image</em></code><br><br><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker inspect</mark>  <em>image...</em></code></td><td><code>show the image history(list of ancestors)</code><br><code>show level-info's(in json format)</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker tag </mark><em>image tag</em></code></td><td><code><em>tag an image </em></code> </td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker commit</mark> <em>containe</em>r image </code></td><td><code><code>Create an image(from a container)</code> </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker import </mark>url<em>| </em>-[tag]</code> </td><td><code>Create an image(from a tarball)</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker rmi</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><code><em>image..</em></code></code>.</td><td><code>delete images</code></td></tr></tbody></table><figcaption class="wp-element-caption">Image Management  Commands</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="Image-Transfer-Commands">Image Transfer Commands</h2>
+
+
+
+<p>To transfer Docker images between different environments or systems, you have a few options. Here are some commonly used methods to transfer Docker images:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-black-color has-text-color has-fixed-layout"><thead><tr><th>Using the registry API</th><th>Description</th></tr></thead><tbody><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker push</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><code><em>repo[:tag]...</em></code></code></td><td><code>push an image /repository from a registry  </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker pull</mark> <em>repo[:tag]..</em></code></td><td><code>pull an image /repository from a registry  </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker search </mark><em>text</em></code></td><td><code><em>search an image on the official registry</em></code> </td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker login</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-black-color">... </mark></code></td><td><code><code>login to a registry</code> </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker logout</mark><em><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-black-color">...</mark></em><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark></code> </td><td><code>logout from a registry</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker export</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><em><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-black-color">&lt;container_id&gt;</mark></em><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">&gt;</mark><em><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-black-color">image.tar</mark></em><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark></code></td><td><code><em>exporting: You can export a Docker image as a tarball file using the <code>docker export</code> command</em></code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker import</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><code><em>image image.tar &lt;image_name&gt;:&lt;tag&gt;</em></code></code></td><td><br><code>importing: On the target system, you can import the Docker image from the tarball using the <code>docker import</code> command</code></td></tr></tbody></table><figcaption class="wp-element-caption">Image Transfer  Commands</figcaption></figure>
+
+
+
+<figure class="wp-block-table"><table class="has-black-color has-text-color has-fixed-layout"><thead><tr><th>Manual Transfer</th><th>Description</th></tr></thead><tbody><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker save</mark> repo<em>| </em>[:tag]...</code> </td><td><code>export an image/repo as a tarball  </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker load</mark></code></td><td><code>load  images from a tarball</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker-ssh</mark><em><sup>10</sup></em></code></td><td><code><em>proposed script to transfer images between two daemons over ssh </em></code> </td></tr></tbody></table><figcaption class="wp-element-caption">Contd’</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="Builder-Main-Commands">Builder Main Commands</h2>
+
+
+
+<p>Want to know how to build Docker Image? Do check out the list of image commands below:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-black-color has-text-color has-fixed-layout"><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">FROM </mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-black-color"><em>image|scratch</em></mark></code></td><td><code>base image for the build </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">MAINTAINER</mark><em> email</em></code></td><td><code>name of the maintainer(metadata). </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">COPY</mark> <em>path dst</em>   </code></td><td><code>copy path from the context into the container at location destination(dst)</code> </td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">ADD</mark> src dst </code></td><td><code>same as <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">COPY</mark> but untar archives and accepts https urls </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">RUN</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><em>args</em>..</code> </td><td><code>run an arbitrary command inside the container </code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">USER</mark> <code><em>name</em></code></code></td><td><code>set the default username</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">WORKDIR</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><code><em>path</em></code></code></td><td><code>set the default working directory</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">CMD</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><em>args</em>..</code> </td><td><code>set the default command</code></td></tr><tr><td><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">ENV</mark> <code><em>name value</em></code></code></td><td><code>set an environment variable</code></td></tr></tbody></table><figcaption class="wp-element-caption">Builder Main Commands</figcaption></figure>
+
+
+
+<p>In Docker, the “builder pattern” is a technique used to create optimized and efficient Docker images by separating the build environment from the runtime environment. It involves using a multi-stage build process, where one stage is used for building the application, and another stage is used to package the application for runtime. This pattern helps to reduce the size of the final Docker image and ensures that only the necessary runtime dependencies are included.</p>
+
+
+
+<p>Here are the main commands used in the builder pattern in Docker:</p>
+
+
+
+<ol>
+<li><strong>FROM</strong>: The <code>FROM</code> instruction specifies the base image for the build stage. It sets up the build environment and contains all the tools and dependencies needed for building the application.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">   FROM base_image_for_building AS build_stage</mark></code></pre>
+
+
+
+<ol start="2">
+<li><strong>RUN</strong>: The <code>RUN</code> instruction executes commands inside the build stage container. It is used to install dependencies, compile code, or perform any other build-related tasks.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>  <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"> RUN apt-get update &amp;&amp; apt-get install -y build-essential
+   RUN npm install
+   RUN go build -o my_app</mark></code></pre>
+
+
+
+<ol start="3">
+<li><strong>COPY/ADD</strong>: The <code>COPY</code> or <code>ADD</code> instruction is used to copy files from the local directory (context) into the build stage container.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">  COPY . /app</mark></code></pre>
+
+
+
+<ol start="4">
+<li><strong>WORKDIR</strong>: The <code>WORKDIR</code> instruction sets the working directory inside the build stage container where subsequent commands will be executed.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>  <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"> WORKDIR /app</mark></code></pre>
+
+
+
+<ol start="5">
+<li><strong>FROM (second stage)</strong>: After the build stage is complete, you use another <code>FROM</code> instruction to start a new stage for the runtime environment. This new stage starts from a smaller base image, typically one containing only the necessary runtime dependencies.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>  <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"> FROM base_image_for_runtime AS runtime_stage</mark></code></pre>
+
+
+
+<ol start="6">
+<li><strong>COPY –from</strong>: The <code>COPY --from</code> instruction copies files from the build stage container to the runtime stage container.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color">   </mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">COPY --from=build_stage /app/my_app /app/my_app</mark></code></pre>
+
+
+
+<ol start="7">
+<li><strong>CMD/ENTRYPOINT</strong>: The <code>CMD</code> or <code>ENTRYPOINT</code> instruction specifies the default command or entry point to run when the container starts. It is used in the runtime stage to define the application that should be executed when the container runs.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>   <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">CMD ["/app/my_app"]</mark></code></pre>
+
+
+
+<p>Here’s a complete example of a multi-stage Dockerfile using the builder pattern:</p>
+
+
+
+<pre class="wp-block-code"><code># Build stage
+<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">FROM golang:1.16 AS build_stage
+WORKDIR /app
+COPY . .
+RUN go build -o my_app</mark>
+
+# Runtime stage
+<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">FROM alpine:latest AS runtime_stage
+WORKDIR /app
+COPY --from=build_stage /app/my_app /app/my_app
+CMD ["/app/my_app"]</mark></code></pre>
+
+
+
+<p>In this example, the first stage uses the Go programming language image as the base image for building the application, compiles the Go code, and generates the <code>my_app</code> executable. In the second stage, the Alpine Linux image is used as the base image for the runtime, and the <code>my_app</code> binary is copied from the first stage. The final image will only include the compiled <code>my_app</code> binary and not the entire build environment, resulting in a smaller and more optimized image for runtime.</p>
+
+
+
+<h2 class="wp-block-heading" id="The-Docker-CLI">The Docker CLI</h2>
+
+
+
+<p>A brief description of some essential Docker CLI commands related to image management and container operations are seen below. Below, I’ve expanded on the descriptions of each command:</p>
+
+
+
+<ol>
+<li><strong>Docker build</strong>:</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>  <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"> docker build [options] -t "app/container_name" .</mark></code></pre>
+
+
+
+<p>This command is used to create a Docker image from a Dockerfile, which is a text file containing instructions to define the image. The <code>-t</code> option is used to specify a tag or name for the built image. The <code>.</code> at the end of the command refers to the build context, i.e., the current directory where the Dockerfile is located.</p>
+
+
+
+<ol start="2">
+<li><strong>Docker run</strong>:</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">   docker run [options] IMAGE</mark></code></pre>
+
+
+
+<p>This command is used to run a command or application in a Docker container based on the specified IMAGE. It creates a new container from the image and executes the default command specified in the image, or any command provided as arguments to the <code>docker run</code> command. This is one of the primary ways to start a container.</p>
+
+
+
+<ol start="3">
+<li><strong>Docker create</strong>:</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>   <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker create [options] IMAGE</mark></code></pre>
+
+
+
+<p>The <code>docker create</code> command creates a new container from the specified IMAGE, but it does not start the container. It prepares the container to be started using the <code>docker start</code> command. You can use this command to create a container and then start it later.</p>
+
+
+
+<ol start="4">
+<li><strong>Manage images</strong>:<br>Docker provides several commands to manage images:</li>
+</ol>
+
+
+
+<ul>
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>docker images</code>:</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Lists all Docker images available on your system.</mark></li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">docker pull</mark></code>: <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Downloads Docker images from a registry.</mark></li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">docker push</mark></code>: <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Pushes Docker images to a registry (e.g., Docker Hub) for sharing with others</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color">.</mark></li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">docker rmi</mark></code>: <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Removes Docker images from your system</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color">.</mark></li>
+</ul>
+
+
+
+<ol start="4">
+<li><strong>Manage containers</strong>:<br>Docker provides several commands to manage containers:</li>
+</ol>
+
+
+
+<ul>
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>docker ps</code>:</mark> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Lists all running containers.</mark></li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">docker ps</mark> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">-a</mark></code>: <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Lists all containers (including stopped ones).</mark></li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">docker start</mark></code>: <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Starts one or more stopped containers</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color">.</mark></li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">docker stop</mark></code>: <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Stops one or more running containers.</mark></li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">docker restart</mark></code>: <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Stops and then starts a container</mark>.</li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">docker rm</mark></code>: <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Removes one or more containers (use with caution).</mark></li>
+</ul>
+
+
+
+<p>These commands are just the basics of working with Docker images and containers. Docker provides a rich set of commands and options to interact with containers, networks, volumes, and more. You can always explore the official Docker documentation for more in-depth information on each command and its options.</p>
+
+
+
+<p>To run a command in a Docker container using the <code>docker create</code> command, you first need to create a container from an image. The <code>docker create</code> command creates a container but does not start it. It returns a container ID that you can use to manage the container.</p>
+
+
+
+<p>Here’s the basic syntax of the <code>docker create</code> command:</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker create [options] IMAGE [COMMAND] [ARG...]</mark></code></pre>
+
+
+
+<p>Let’s break down the options:</p>
+
+
+
+<ul>
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>-a</code>, <code>--attach</code>:</mark> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Attach STDOUT/STDERR and forward signals.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>-i</code>, <code>--interactive</code>:</mark> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Keep STDIN open even if not attached.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>--name NAME</code>:</mark> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Assign a name to the container.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>-p</code>, <code>--publish 5000:</code></mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"><code>5000</code>: Publish a container’s port to the host. In this example, port 5000 from the container will be mapped to port 5000 on the host.</mark></li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">--expose 5432</mark></code>:<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Expose a port internally to linked containers. This does not publish the port to the host machine.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>-P</code>, <code>--publish-all</code>:</mark> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Publish all exposed ports to the host.</mark></li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">--link container:</mark></code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"><code>alias</code>: Link the container to another container with an optional alias.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>-v</code>, <code>--volume 'pwd:/app</code>: </mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Mount a host directory into the container. In this example, the current working directory is mounted to the <code>/app</code> directory in the container.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>-e</code>, <code>--env NAME=hello</code>:</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"> </mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Set an environment variable inside the container.</mark></li>
+</ul>
+
+
+
+<p>Here’s an example of using the <code>docker create</code> command:</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker create -a -i --name my_container -p 5000:5000 --expose 5432 -P --link db_container:db_alias -v "$(pwd):/app" -e NAME=hello my_image</mark></code></pre>
+
+
+
+<ul>
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>-a -i</code>: </mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Attach STDOUT/STDERR and keep STDIN open for an interactive session</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color">.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>--name my_container</code>: </mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Assign the name “my_container” to the created container.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>-p 5000:5000</code>:</mark> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Publish port 5000 from the container to port 5000 on the host.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>--expose 5432</code>: </mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Expose port 5432 internally for linking to other containers</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color">.</mark></li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">-P</mark></code>: <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Publish all exposed ports to the host</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color">.</mark></li>
+
+
+
+<li><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color">--link db_container</mark></code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-green-cyan-color"><code>:</code></mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"><code>db_alias</code>: Link the container to another container named “db_container” with the alias “db_alias”.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>-v "$(pwd):/app"</code>:</mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"> Mount the current working directory on the host into the “/app” directory in the container.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>-e NAME=hello</code>: </mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">Set an environment variable “NAME” with the value “hello” inside the container.</mark></li>
+
+
+
+<li><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-luminous-vivid-orange-color"><code>my_image</code>:</mark> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">The name of the Docker image from which to create the container.</mark></li>
+</ul>
+
+
+
+<p>Please note that some of the options like <code>--link</code> are deprecated in recent versions of Docker, and it’s recommended to use user-defined networks for container communication instead.:</p>
+
+
+
+<pre class="wp-block-code"><code>| Variable Name | Value   |
+|-------------- | ------- |
+| VAR1          | value1  |
+| VAR2          | value2  |
+| VAR3          | value3  |</code></pre>
+
+
+
+<p>Replace <code>VAR1</code>, <code>VAR2</code>, and <code>VAR3</code> with the actual names of your environment variables, and <code>value1</code>, <code>value2</code>, and <code>value3</code> with their respective values.</p>
+
+
+
+<p>Remember, to execute the <code>docker create</code> command, you must have Docker installed and running on your system.</p>
+
+
+
+<h2 class="wp-block-heading">Docker Compose</h2>
+
+
+
+<h3 class="wp-block-heading">Basic Example</h3>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">version: '2'
+services:
+  web:
+    build:
+      context: ./Path
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+
+  redis:
+    image: redis</mark></code></pre>
+
+
+
+<p>In this configuration:</p>
+
+
+
+<ul>
+<li>The <code>web</code> service is defined, which will build an image using the Dockerfile located in the <code>./Path</code> directory. It exposes port 5000 from the container to port 5000 on the host and mounts the current directory (<code>.</code>) to <code>/code</code> inside the container.</li>
+
+
+
+<li>The <code>redis</code> service is defined, which uses the official Redis image from Docker Hub.</li>
+</ul>
+
+
+
+<p>Please ensure that you replace <code>./Path</code> with the actual path to your Dockerfile and update any other placeholders with your specific project details. Make sure the indentation is correct as YAML is indentation-sensitive.</p>
+
+
+
+<h4 class="wp-block-heading">References</h4>
+
+
+
+<ol>
+<li><strong>Building Images</strong>:</li>
+</ol>
+
+
+
+<p>To build images using Docker Compose, you can specify the <code>build</code> section within a service definition. You can build from a Dockerfile in a directory (<code>context</code>) and specify a custom Dockerfile if needed. Alternatively, you can directly use an existing image.</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">version: '3'
+services:
+  web:
+    build:
+      context: ./dir
+      dockerfile: Dockerfile.dev
+    image: my-custom-image:tag
+
+  database:
+    image: postgres:latest</mark></code></pre>
+
+
+
+<p>In this example, the <code>web</code> service is built using a custom Dockerfile located in the <code>./dir</code> directory. The resulting image is then tagged as <code>my-custom-image:tag</code>. The <code>database</code> service uses an existing <code>postgres</code> image.</p>
+
+
+
+<ol start="2">
+<li><strong>Exposing Ports</strong>:</li>
+</ol>
+
+
+
+<p>To expose ports from containers to the host machine, you can use the <code>ports</code> section within a service definition. You can specify both the guest (container) port and the host port.</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">version: '3'
+services:
+  app:
+    image: my-app-image:latest
+    ports:
+      - "3000"
+      - "8000:80"</mark></code></pre>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">#Expose port to linked service (not to host)
+Expose :["3000"]</mark></code></pre>
+
+
+
+<p>In this example, the <code>app</code> service exposes port 3000 from the container to a random port on the host. It also maps port 80 from the container to port 8000 on the host.</p>
+
+
+
+<p>Please note that these examples are meant to illustrate the structure and syntax of Docker Compose configurations. Make sure to replace <code>my-custom-image:tag</code> and <code>my-app-image:latest</code> with the actual image names you intend to use.</p>
+
+
+
+<p>Remember that proper YAML indentation is crucial in Docker Compose files.</p>
+
+
+
+<h2 class="wp-block-heading">Advanced Features</h2>
+
+
+
+<ol>
+<li><strong>Labels</strong>:</li>
+</ol>
+
+
+
+<p>Labels allow you to attach metadata to your Docker services, containers, and other objects. Here’s how you can define labels in a Docker Compose YAML file:</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">version: '3'
+services:
+  web:
+    image: my_web_app_image
+    labels:
+      com.example.description: "Accounting web app"</mark></code></pre>
+
+
+
+<p>In this example, the <code>web</code> service is assigned a label <code>com.example.description</code> with the value <code>"Accounting web app"</code>.</p>
+
+
+
+<ol start="2">
+<li><strong>DNS Servers</strong>:</li>
+</ol>
+
+
+
+<p>You can configure DNS servers for your services using the <code>dns</code> option. Here’s how you can define DNS servers in a Docker Compose YAML file:</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">version: '3'
+services:
+  web:
+    image: my_web_app_image
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4</mark></code></pre>
+
+
+
+<p>In this example, the <code>web</code> service is configured to use the Google DNS servers (8.8.8.8 and 8.8.4.4).</p>
+
+
+
+<ol start="3">
+<li><strong>Devices</strong>:</li>
+</ol>
+
+
+
+<p>You can assign devices to a service using the <code>devices</code> option. Here’s how you can define devices in a Docker Compose YAML file:</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">version: '3'
+services:
+  web:
+    image: my_web_app_image
+    devices:
+      - "/dev/ttyUSBO:/dev/ttyUSBO"</mark></code></pre>
+
+
+
+<p>In this example, the <code>web</code> service is assigned the device <code>/dev/ttyUSBO</code> from the host, and it will be available at the same path inside the container.</p>
+
+
+
+<p>Remember to replace <code>my_web_app_image</code> with the actual image name you’re using.</p>
+
+
+
+<p>Make sure to save these configurations in a <code>.yml</code> file (e.g., <code>docker-compose.yml</code>) and use the <code>docker-compose</code> command to manage your services:</p>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker-compose up -d # to start your services
+docker-compose down # to stop and remove your services</mark></code></pre>
+
+
+
+<p>Please note that YAML indentation is crucial. Be sure to maintain proper indentation levels as shown in the examples.</p>
+
+
+
+<h2 class="wp-block-heading">Docker Services</h2>
+
+
+
+<ol>
+<li><strong>To view a list of all the services running in the swarm:</strong></li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">   docker service ls</mark></code></pre>
+
+
+
+<ol start="2">
+<li><strong>To see all running services in a Docker stack:</strong></li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>  <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"> docker stack services STACK_NAME</mark></code></pre>
+
+
+
+<ol start="3">
+<li><strong>To see the logs of a specific service in a Docker stack:</strong></li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>  <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"> docker service logs STACK_NAME_SERVICE_NAME</mark></code></pre>
+
+
+
+<ol start="4">
+<li><strong>To scale a service quickly across qualified nodes in a Docker stack:</strong></li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">   docker service scale STACK_NAME_SERVICE_NAME=REPLICAS</mark></code></pre>
+
+
+
+<p>Replace<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-purple-color"> <code>STACK_NAME</code>, <code>SERVICE_NAME</code>, and <code>REPLICAS</code></mark><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-pale-cyan-blue-color"> </mark>with the actual names of the Docker stack, service, and the desired number of replicas, respectively.</p>
+
+
+
+<p>Please note that the command for viewing logs (<code>docker service logs</code>) requires both the stack name and the service name as arguments. The scaling command (<code>docker service scale</code>) should be used when you want to adjust the number of replicas (instances) of a specific service within a Docker swarm.</p>
+
+
+
+<h2 class="wp-block-heading">Docker Clean</h2>
+
+
+
+<ol>
+<li><strong>To clean or prune unused (dangling) images:</strong></li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>   <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker image prune</mark></code></pre>
+
+
+
+<ol start="2">
+<li><strong>To remove all images which are not in use containers (including dangling images):</strong></li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>   <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker image prune -a</mark></code></pre>
+
+
+
+<ol start="3">
+<li><strong>To prune your entire system (including unused images, containers, networks, and volumes):</strong></li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>   <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">docker system prune</mark></code></pre>
+
+
+
+<ol start="4">
+<li><strong>To leave a Docker swarm (if you are a node in a swarm):</strong></li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>  <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"> docker swarm leave</mark></code></pre>
+
+
+
+<ol start="5">
+<li><strong>To remove a Docker swarm (delete all services and volumes related to the stack):</strong></li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">   docker stack rm STACK_NAME</mark></code></pre>
+
+
+
+<ol start="6">
+<li><strong>To kill all running containers:</strong></li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">   docker kill $(docker ps -q)</mark></code></pre>
+
+
+
+<p>Note: The “docker swarm leave” command should be executed on a worker or manager node within the swarm. The “docker stack rm” command is used to remove a Docker stack (services) from a swarm cluster. Also, be cautious while using the “docker system prune” command, as it will remove all unused data (images, containers, networks, and volumes) from your system, and the operation cannot be undone. Always review what will be pruned before confirming the action.</p>
+
+
+
+<h2 class="wp-block-heading" id="Docker-Security-(Scout,SBOM)">Docker Security (Scout,SBOM)</h2>
+
+
+
+<p>The provided commands are part of a tool called “Docker Scout” used to analyze software artifacts, especially Docker images, for vulnerabilities. Below is a description of each command:</p>
+
+
+
+<ol>
+<li><strong>Display vulnerabilities from a Docker save tarball:</strong><br>This command analyzes vulnerabilities in a Docker image saved as a tarball.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">   docker scout cves [OPTIONS] IMAGE | DIRECTORY | ARCHIVE</mark></code></pre>
+
+
+
+<p>Example usage:</p>
+
+
+
+<pre class="wp-block-code"><code> <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">  docker scout cves redis.tar</mark></code></pre>
+
+
+
+<ol start="2">
+<li><strong>Display vulnerabilities from an OCI directory:</strong><br>This command analyzes vulnerabilities in a Docker image stored in an OCI (Open Container Initiative) directory.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">   skopeo copy --override-os linux docker://alpine oci:redis</mark></code></pre>
+
+
+
+<p>Note: Skopeo is a tool for working with container images and can be used to copy an image from one location to another.</p>
+
+
+
+<ol start="3">
+<li><strong>Export vulnerabilities to a SARIF JSON file:</strong><br>This command exports vulnerabilities detected in a Docker image to a SARIF (Static Analysis Results Interchange Format) JSON file.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">   docker scout cves --format sarif --output redis.sarif.json redis</mark></code></pre>
+
+
+
+<p>The above command generates a SARIF JSON file named <code>redis.sarif.json</code> containing the vulnerabilities found in the <code>redis</code> Docker image.</p>
+
+
+
+<ol start="4">
+<li><strong>Comparing two images:</strong><br>This command compares two Docker images to identify any differences in vulnerabilities between them.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>  <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color"> docker scout compare --to redis:6.0 redis:6-bullseye</mark></code></pre>
+
+
+
+<p>The above command compares the vulnerabilities in the <code>redis:6.0</code> and <code>redis:6-bullseye</code> Docker images.</p>
+
+
+
+<ol start="5">
+<li><strong>Displaying the Quick Overview of an Image:</strong><br>This command provides a quick overview of the vulnerabilities in a Docker image.</li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">   docker scout quickview redis:6.0</mark></code></pre>
+
+
+
+<p>The above command displays a summary of vulnerabilities found in the <code>redis:6.0</code> Docker image.</p>
+
+
+
+<p></p>
+
+
+
+<p>Please note that the commands provided assume you have the “Docker Scout” tool installed and properly configured. The tool may not be a standard Docker command, so you may need to install it separately. Additionally, the options and capabilities of the tool might change over time, so it’s always a good idea to refer to the tool’s documentation for the most up-to-date information.:</p>
+
+
+
+<h2 class="wp-block-heading" id="Contributors"><strong>Contributors</strong></h2>
+
+
+
+<p>Join our vibrant community of 8000+ DevOps engineers, including Docker Captain <a rel="noreferrer noopener" href="https://github.com/ajeetraina" target="_blank">Ajeet Raina</a>. Collaborate and contribute to empower cloud-native education and innovation.</p>
+
+
+
+<h2 class="wp-block-heading" id="Support-and-Community">Support and Community</h2>
+
+
+
+<p>Support &amp; Community: Engage with<a rel="noreferrer noopener" href="https://www.collabnix.com/" target="_blank"> Collabnix</a> on various platforms. Access community-contributed blogs, stay updated with announcements, connect on <a href="https://launchpass.com/collabnix" data-type="URL" data-id="https://launchpass.com/collabnix">slack</a> , <a rel="noreferrer noopener" href="https://twitter.com/collabnix" target="_blank">Twitter</a>,<a href="https://dev.to/collabnix" target="_blank" rel="noreferrer noopener">  Dev</a>, and chat on <a rel="noreferrer noopener" href="https://discord.gg/ztZpXzjSmF" target="_blank">Discord.</a></p>
+
+
+
+<h2 class="wp-block-heading" id="References">References</h2>
+
+
+
+<p>Discover a wealth of hands-on labs, tutorials, and curated lists <a rel="noreferrer noopener" href="https://www.collabnix.com/" target="_blank">here</a> . Explore <a rel="noreferrer noopener" href="https://dockerlabs.collabnix.com/" target="_blank">DockerLabs</a>, <a rel="noreferrer noopener" href="https://kubelabs.collabnix.com/" target="_blank">KubeLabs</a>, <a rel="noreferrer noopener" href="https://kubetools.collabnix.com/" target="_blank">Kubetools</a>,<a href="https://dockertools.collabnix.com/"> DockerTools</a>, and more. Enhance your DevOps and cloud-native skills.</p>
+
+
+
+<p></p>
+
+
+
+<p><strong>Contributing to Collabnix</strong></p>
+
+
+
+<p>If you’re excited about cloud-native technologies and have a passion for sharing your knowledge, we welcome you to contribute to Collabnix. Whether you’re a seasoned pro or just starting your journey, our community provides a nurturing environment for collaboration and growth.</p>
+
+
+
+<p><strong>Get in Touch!</strong></p>
+
+
+
+<p>Docker Captain <a rel="noreferrer noopener" href="https://github.com/ajeetraina" target="_blank">Ajeet Raina</a> is here to guide you through the Collabnix experience. Also you could reach out to <a href="https://adesoji1.github.io/">Adesoji Alu</a> to connect. And don’t forget to explore  <a href="https://collabnix.com/">collabnix.com</a> to embark on a journey of learning and innovation.</p>
+
+
+
+<p>Join me and the entire Collabnix community as we explore the fascinating world of DevOps, Cloud-Native, AI, and beyond. Let’s empower each other, one cloud-native step at a time.</p>
+
+
+
+<p>Cheers to the exciting journey ahead! 🚀🌟👨‍💻</p>
+
+
+
+<p></p>
+                    </div><!-- .entry-content -->
+                </article><!-- #post-## -->
+            
+						</div>
+
+	</div>
+</div>
+
+</div><!-- /.site-content -->
+        
+        <div class="container">
+            <footer class="footer"> 
+                <p class="pull-left"> © Copyright Collabnix Inc </p> 
+                <p class="pull-right"> Built for Collabnix Community, <a href="https://www.community.collabnix.com/">by Community</a> </p> 
+                <div class="clearfix"></div>
+                <a href="https://collabnix.com/docker-cheatsheet/" class="back-to-top hidden-md-down" style="display: none;"> 
+                <i class="fa fa-angle-up"></i>
+                </a>
+            </footer>
+        </div>
+        
+    <!-- Cookie banner START -->
+        <div id="oc_cb_wrapper" class="oc_cb_wrapper fill_grey"> 
+            <div class="oc_cb_content">
+                                    <div class="oc_cb_text">
+                        <p>
+                            This website uses cookies. By continuing to use this site, you accept our use of cookies.&nbsp;                                                    </p>
+                    </div>
+                
+                                    <div class="oc_cb_btn_wrap">
+                        <button class="oc_cb_btn" id="oc_cb_btn">Accept</button>
+                    </div>
+                            </div>
+        </div>
+    <!-- Cookie banner END -->
+<script>
+window.addEventListener('sfsi_functions_loaded', function() {
+    if (typeof sfsi_responsive_toggle == 'function') {
+        sfsi_responsive_toggle(0);
+        // console.log('sfsi_responsive_toggle');
+
+    }
+})
+</script>
+<script>
+window.addEventListener('sfsi_functions_loaded', function() {
+    if (typeof sfsi_plugin_version == 'function') {
+        sfsi_plugin_version(2.77);
+    }
+});
+
+function sfsi_processfurther(ref) {
+    var feed_id = 'ZXdWelo0V1BUNmJ1Wk4vSHlkM0lDajBKZlp3QzBhaytGL0dQQnZ0M2JVdE42aWpWN2lvREdMekJLa1FmRXRGK3FRRi9QdS8renl6T1NIeUFjYWlvdCs1bysxMEZrajlZZ1gxY3IrWWNHNmgzQTNBcnpUZEVUMko4VWx5NCt0L1h8bDJyYUw0NlExZFQrMzdFZEpTQ1ZqMzNEbS96ZWJmTUltTS8zb0E5cEJ0TT0=';
+    var feedtype = 8;
+    var email = jQuery(ref).find('input[name="email"]').val();
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if ((email != "Enter your email") && (filter.test(email))) {
+        if (feedtype == "8") {
+            var url = "https://api.follow.it/subscription-form/" + feed_id + "/" + feedtype;
+            window.open(url, "popupwindow", "scrollbars=yes,width=1080,height=760");
+            return true;
+        }
+    } else {
+        alert("Please enter email address");
+        jQuery(ref).find('input[name="email"]').focus();
+        return false;
+    }
+}
+</script>
+<style type="text/css" aria-selected="true">
+.sfsi_subscribe_Popinner {
+    width: 100% !important;
+
+    height: auto !important;
+
+    padding: 18px 0px !important;
+
+    background-color: #ffffff !important;
+}
+
+.sfsi_subscribe_Popinner form {
+    margin: 0 20px !important;
+}
+
+.sfsi_subscribe_Popinner h5 {
+    font-family: Helvetica,Arial,sans-serif !important;
+
+    font-weight: bold !important;
+
+        color: #000000 !important;
+
+    font-size: 16px !important;
+
+    text-align: center !important;
+    margin: 0 0 10px !important;
+    padding: 0 !important;
+}
+
+.sfsi_subscription_form_field {
+    margin: 5px 0 !important;
+    width: 100% !important;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+}
+
+.sfsi_subscription_form_field input {
+    width: 100% !important;
+    padding: 10px 0px !important;
+}
+
+.sfsi_subscribe_Popinner input[type=email] {
+    font-family: Helvetica,Arial,sans-serif !important;
+
+    font-style: normal !important;
+
+        color:  !important;
+
+    font-size: 14px !important;
+
+    text-align: center !important;
+}
+
+.sfsi_subscribe_Popinner input[type=email]::-webkit-input-placeholder {
+
+    font-family: Helvetica,Arial,sans-serif !important;
+
+    font-style: normal !important;
+
+        color:  !important;
+
+    font-size: 14px !important;
+
+    text-align: center !important;
+}
+
+.sfsi_subscribe_Popinner input[type=email]:-moz-placeholder {
+    /* Firefox 18- */
+
+    font-family: Helvetica,Arial,sans-serif !important;
+
+    font-style: normal !important;
+
+        color:  !important;
+
+    font-size: 14px !important;
+
+    text-align: center !important;
+
+}
+
+.sfsi_subscribe_Popinner input[type=email]::-moz-placeholder {
+    /* Firefox 19+ */
+    font-family: Helvetica,Arial,sans-serif !important;
+
+    font-style: normal !important;
+
+        color:  !important;
+
+    font-size: 14px !important;
+
+    text-align: center !important;
+
+}
+
+.sfsi_subscribe_Popinner input[type=email]:-ms-input-placeholder {
+    font-family: Helvetica,Arial,sans-serif !important;
+
+    font-style: normal !important;
+
+        color:  !important;
+
+    font-size: 14px !important;
+
+    text-align: center !important;
+}
+
+.sfsi_subscribe_Popinner input[type=submit] {
+    font-family: Helvetica,Arial,sans-serif !important;
+
+    font-weight: bold !important;
+
+        color: #000000 !important;
+
+    font-size: 16px !important;
+
+    text-align: center !important;
+
+    background-color: #dedede !important;
+}
+
+.sfsi_shortcode_container {
+        float: left;
+    }
+
+    .sfsi_shortcode_container .norm_row .sfsi_wDiv {
+        position: relative !important;
+    }
+
+    .sfsi_shortcode_container .sfsi_holders {
+        display: none;
+    }
+
+    </style>
+
+<div style="text-align:center;">
+  <a href="https://discord.gg/QEkCXAXYSe" target="_blank" style="background-color:#7289DA;color:white;padding:10px 20px;border-radius:5px;text-decoration:none;">Join our Discord Server</a>
+</div>
+<style id="core-block-supports-inline-css" type="text/css">
+.wp-container-core-columns-layout-1.wp-container-core-columns-layout-1{flex-wrap:nowrap;}.wp-container-core-group-layout-2.wp-container-core-group-layout-2{flex-direction:column;align-items:flex-start;}
+</style>
+<script type="text/javascript" id="oc_cb_js_fr-js-extra">
+/* <![CDATA[ */
+var oc_constants = {"ajaxurl":"https:\/\/collabnix.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/cookie-banner-frontend.min.js.download" id="oc_cb_js_fr-js"></script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/core.min.js.download" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/modernizr.custom.min.js.download" id="SFSIjqueryModernizr-js"></script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/jquery.shuffle.min.js.download" id="SFSIjqueryShuffle-js"></script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/random-shuffle-min.js.download" id="SFSIjqueryrandom-shuffle-js"></script>
+<script type="text/javascript" id="SFSICustomJs-js-extra">
+/* <![CDATA[ */
+var sfsi_icon_ajax_object = {"nonce":"feaef595dd","ajax_url":"https:\/\/collabnix.com\/wp-admin\/admin-ajax.php","plugin_url":"https:\/\/collabnix.com\/wp-content\/plugins\/ultimate-social-media-icons\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/custom.js.download" id="SFSICustomJs-js"></script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/tether.min.js.download" id="bootstrap4tether-js"></script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/bootstrap.min.js.download" id="bootstrap4-js"></script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/ie10-viewport-bug-workaround.js.download" id="mediumish-ieviewportbugworkaround-js"></script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/masonry.pkgd.min.js.download" id="mediumish-masonrypkgd-js"></script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/mediumish.js.download" id="mediumish-js"></script>
+<script type="text/javascript" id="wp_slimstat-js-extra">
+/* <![CDATA[ */
+var SlimStatParams = {"ajaxurl":"https:\/\/collabnix.com\/wp-admin\/admin-ajax.php","baseurl":"\/","dnt":"noslimstat,ab-item","ci":"YTozOntzOjEyOiJjb250ZW50X3R5cGUiO3M6NDoicGFnZSI7czoxMDoiY29udGVudF9pZCI7aTo5NjU1O3M6NjoiYXV0aG9yIjtzOjEwOiJhamVldHJhaW5hIjt9.7047738a5fd4b8a28ac6ffdccd4868a0"};
+/* ]]> */
+</script>
+<script defer="" type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/wp-slimstat.min.js.download" id="wp_slimstat-js"></script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/js.cookie.js.download" id="jquery-cookie-js"></script>
+<script type="text/javascript" id="wp-claps-applause-js-extra">
+/* <![CDATA[ */
+var clapsapplause = {"ajax_url":"https:\/\/collabnix.com\/wp-admin\/admin-ajax.php","lovedText":"","loveText":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Docker Cheatsheet [2023 Updated] – Collabnix_files/claps-applause.js.download" id="wp-claps-applause-js"></script>
+<script id="ocvars">var ocSiteMeta = {plugins: {"a3e4aa5d9179da09d8af9b6802f861a8": 1,"2c9812363c3c947e61f043af3c9852d0": 1,"b904efd4c2b650207df23db3e5b40c86": 1,"a3fe9dc9824eccbd72b7e5263258ab2c": 1}}</script>         
+
+</body></html>
